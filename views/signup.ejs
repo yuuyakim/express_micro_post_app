@@ -11,7 +11,57 @@
   </head>
   <body>
     <%- include('./header'); %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <div class="container">
+      <h1><%= title %></h1>
+      <form action="/signup" method="post">
+        <label>Username</label>
+        <br />
+        <input required type="text" name="username" placeholder="Username" />
+        <br />
+        <label for="email">Username</label>
+        <br />
+        <input
+          required
+          type="email"
+          class="form-controll"
+          name="email"
+          placeholder="Email@example.com"
+        />
+        <br />
+        <label for="password">Password</label>
+        <br />
+        <input
+          required
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <br />
+
+        <label for="repassword">Confirmation</label>
+        <br />
+        <input required type="text" name="repassword" placeholder="Password" />
+        <br />
+
+        <input class="btn btn-primary" type="submit" value="Sign Up" />
+      </form>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

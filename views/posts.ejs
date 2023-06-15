@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <ol class="list-group">
+      <% posts.map( (post) => { %>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold"><%= post.user_name%></div>
+          <%= post.content%>
+        </div>
+      </li>
+      <% }) %>
+    </ol>
+    <br />
+    <p>
+      <a
+        class="btn btn-primary"
+        data-toggle="collapse"
+        href="#collapseExample"
+        role="button"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+        投稿
+      </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <form action="/posts" method="post">
+          <input type="text" name="content" />
+          <input class="btn btn-primary" type="submit" value="投稿する" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
