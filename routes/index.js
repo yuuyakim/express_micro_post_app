@@ -3,12 +3,20 @@ var router = express.Router();
 const mysql = require("mysql");
 const knex = require("../db/knex");
 const User = require("../models/user");
+const Post = require("../models/post");
+const Relationship = require("../models/relationship");
 
 // const connection = mysql.createConnection(conn_obj);
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/", async function (req, res, next) {
   const isAuth = req.isAuthenticated();
+  const user_id = req.user.id;
+  const postCount = await Post.countByUserId(user_id);
+  const followCount = await Relationship.followCount(user_id);
+  const followerCount = await Relationship.followerCount(user_id);
+  console.log(followCount);
+  console.log(followerCount);
   knex("posts")
     .join("users", "posts.user_id", "users.id")
     .select("posts.id", "posts.content", "users.user_name")
@@ -18,6 +26,10 @@ router.get("/", function (req, res, next) {
         title: "投稿一覧",
         isAuth: isAuth,
         posts: results,
+        current_user: req.user,
+        postCount: postCount,
+        followCount: followCount,
+        followerCount: followerCount,
       });
     });
 });

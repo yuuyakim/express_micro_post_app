@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('./header'); %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="/"><%= current_user.user_name %></a>
+        </h5>
+        <p>post: <%= postCount.postCount %>件</p>
+        <div class="container row">
+          <div></div>
+          <p class="col"><%= followCount.count %>follows</p>
+          <p class="col"><%= followerCount.count %>followers</p>
+        </div>
+        <p class="card-text">
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
