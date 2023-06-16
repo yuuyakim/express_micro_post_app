@@ -10,20 +10,39 @@
   </head>
   <body>
     <%- include('./header'); %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/"><%= current_user.user_name %></a>
-        </h5>
-        <p>post: <%= postCount.postCount %>件</p>
-        <div class="container row">
-          <div></div>
-          <p class="col"><%= followCount.count %>follows</p>
-          <p class="col"><%= followerCount.count %>followers</p>
+    <div class="container row">
+      <div class="col-12">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <div class="container row">
+              <h5 class="card-title col-auto">
+                <a href="/"><%= user.user_name %></a>
+              </h5>
+              <form action="/profile/follow" method="post">
+                <input
+                  type="hidden"
+                  name="follow_user_id"
+                  value="<%= user.id %>"
+                />
+                <input
+                  class="btn btn-primary col-12"
+                  type="submit"
+                  value="Follow"
+                />
+              </form>
+            </div>
+
+            <p>post: <%= postCount.postCount %>件</p>
+            <div class="container row">
+              <div></div>
+              <p class="col"><%= followCount.count %>follows</p>
+              <p class="col"><%= followerCount.count %>followers</p>
+            </div>
+            <p class="card-text">
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </p>
+          </div>
         </div>
-        <p class="card-text">
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </p>
       </div>
     </div>
   </body>

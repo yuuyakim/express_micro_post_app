@@ -44,9 +44,11 @@ router.post("/posts", (req, res, next) => {
     .then(() => res.redirect("/"));
 });
 
+
 router.use("/signup", require("./signup"));
 router.use("/signin", require("./signin"));
-
 router.use("/logout", require("./logout"));
+
+router.use("/profile", require("./profile"))
 
 module.exports = router;
