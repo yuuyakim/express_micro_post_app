@@ -15,7 +15,9 @@
         class="list-group-item d-flex justify-content-between align-items-start"
       >
         <div class="ms-2 me-auto">
-          <div class="fw-bold"><%= post.user_name%></div>
+          <div class="fw-bold">
+            <a href="/profile/<%= post.user_id %>"><%= post.user_name%></a>
+          </div>
           <%= post.content%>
         </div>
       </li>

@@ -11,13 +11,28 @@
   <body>
     <%- include('./header'); %>
     <div class="container row">
-      <div class="col-12">
+      <div class="col">
         <div class="card" style="width: 18rem">
           <div class="card-body">
             <div class="container row">
               <h5 class="card-title col-auto">
                 <a href="/"><%= user.user_name %></a>
               </h5>
+              <% if (my_user_id !== user.id) { %> <% if (followList !== null &&
+              followList.includes(user.id)) { %>
+              <form action="/profile/unfollow" method="post">
+                <input
+                  type="hidden"
+                  name="follow_user_id"
+                  value="<%= user.id %>"
+                />
+                <input
+                  class="btn btn-primary col-12"
+                  type="submit"
+                  value="UnFollow"
+                />
+              </form>
+              <% } else { %>
               <form action="/profile/follow" method="post">
                 <input
                   type="hidden"
@@ -30,6 +45,7 @@
                   value="Follow"
                 />
               </form>
+              <% } %> <% } %>
             </div>
 
             <p>post: <%= postCount.postCount %>件</p>
@@ -43,6 +59,10 @@
             </p>
           </div>
         </div>
+      </div>
+      <div class="col-6">
+        <h1><%= user.user_name %>さんの投稿</h1>
+        <%- include('./posts') %>
       </div>
     </div>
   </body>
